@@ -7,24 +7,28 @@ let computerScore = 0;
 
 function computerPlay() {
     const choices = ['rock', 'paper', 'scissors'];
-    const randomIndex = Math.floor(Math.random() * 3);
+    const randomIndex = Math.floor(Math.random() * choices.length);
     return choices[randomIndex];
 }
+
+
 
 function playRound(playerSelection, computerSelection) {
     playerSelection = playerSelection.toLowerCase();
 
-    if (playerSelection === computerSelection) {
+    const choices = ['rock', 'paper', 'scissors'];
+    const playerIndex = choices.indexOf(playerSelection);
+    const computerIndex = choices.indexOf(computerSelection);
+
+    const result = (playerIndex - computerIndex + 3) % 3;
+
+    if (result === 0) {
         resultsDiv.textContent = "It's a tie! " + playerSelection + " equals " + computerSelection;
-    } else if (
-        (playerSelection === 'rock' && computerSelection === 'scissors') ||
-        (playerSelection === 'paper' && computerSelection === 'rock') ||
-        (playerSelection === 'scissors' && computerSelection === 'paper')
-    ) {
+    } else if (result === 1) {
         resultsDiv.textContent = "You win! " + playerSelection + " beats " + computerSelection;
         playerScore++;
     } else {
-        resultsDiv.textContent = "You lose! " + computerSelection + " beats " + playerSelection;
+        resultsDiv.textContent = "Computer wins! " + computerSelection + " beats " + playerSelection;
         computerScore++;
     }
 
@@ -37,12 +41,6 @@ function playRound(playerSelection, computerSelection) {
         resultsDiv.textContent = "Sorry, you lose the game.";
         resetGame();
     }
-}
-
-function resetGame() {
-    playerScore = 0;
-    computerScore = 0;
-    scoreDiv.textContent = "Player: 0 - Computer: 0";
 }
 
 buttons.forEach(button => {
