@@ -24,8 +24,15 @@ img {
 .button-container button:hover,
 .button-container button img:hover {
     transform: scale(1.05); /* Enlarge the element on hover */
-    transition: transform 0.3s ease; /* Add a smooth transition effect */
+    transition: transform 0.3s ease; /* Add a smooth hover transition effect */
     cursor: pointer; /* Change the cursor to a pointer on hover */
+}
+
+/* Add a click effect for the buttons and images inside the buttons */
+.button-container button:active,
+.button-container button img:active {
+    transform: scale(0.99); /* Slightly shrink the element when clicked */
+    transition: transform 0.1s ease; /* Add a smooth click transition effect */
 }
 
 #refresh-button {
