@@ -1,0 +1,28 @@
+* {
+    border: 1px solid red;
+}
+
+.main-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.button-container {
+    margin-bottom: 20px;
+    display: flex;
+    gap: 20px;
+}
+
+img {
+    width: 200px;
+}
+
+/* Add a hover effect for the buttons and images inside the buttons */
+.button-container button:hover,
+.button-container button img:hover {
+    transform: scale(1.05); /* Enlarge the element on hover */
+    transition: transform 0.3s ease; /* Add a smooth transition effect */
+    cursor: pointer; /* Change the cursor to a pointer on hover */
+}
