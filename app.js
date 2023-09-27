@@ -33,14 +33,7 @@ function playRound(playerSelection, computerSelection) {
     }
 
     scoreDiv.textContent = `Player: ${playerScore} - Computer: ${computerScore}`;
-
-    if (playerScore === 5) {
-        resultsDiv.textContent = "Congratulations! You win the game!";
-        resetGame();
-    } else if (computerScore === 5) {
-        resultsDiv.textContent = "Sorry, you lose the game.";
-        resetGame();
-    }
+    
 }
 
 buttons.forEach(button => {
@@ -49,4 +42,10 @@ buttons.forEach(button => {
         const computerSelection = computerPlay();
         playRound(playerSelection, computerSelection);
     });
+});
+
+const refreshButton = document.getElementById('refresh-button');
+
+refreshButton.addEventListener('click', () => {
+    location.reload(); // This reloads the page
 });
